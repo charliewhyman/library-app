@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Library App</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <script>
+        
+        function Book(title, author, pages, readStatus) {
+            this.title = title
+            this.author = author
+            this.pages = pages
+            this.readStatus = readStatus
+            this.info = function() {
+                return `${this.title} by ${this.author}, ${this.pages}, ${this.readStatus}`
+            }
+        }
+        
+    </script>
+</body>
+<script src="js/script.js"></script>
+</html>
