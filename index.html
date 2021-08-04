@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset='UTF-8'>
         <title>Library App</title>
         <link href='https://fonts.googleapis.com/css?family=Rock+Salt' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel='stylesheet' href='css/style.css' />
     </head>
     <body>
-        <div class="container">
+        <div class='container'>
             <h1>Library v1.0</h1>
             <h2>Add a new book:</h2>
-            <button type="button" id="showBookButton" onclick=showForm()>Show new book form</button>
-            <form id="newBookForm">
-                <label for="title">Title:</label><br>
-                <input type="text" id="title" name="title"><br>
-                <label for="author">Author:</label><br>
-                <input type="text" id="author" name="author"><br>
-                <label for="pages">Number of pages:</label><br>
-                <input type="text" id="pages" name="pages"><br>
+            <button type='button' id='showBookButton' onclick=showForm()>Show new book form</button>
+            <form id='newBookForm'>
+                <label for='title'>Title:</label><br>
+                <input type='text' id='title' name='title'><br>
+                <label for='author'>Author:</label><br>
+                <input type='text' id='author' name='author'><br>
+                <label for='pages'>Number of pages:</label><br>
+                <input type='text' id='pages' name='pages'><br>
 
                 <p>Have you read this book?</p>
-                <input type="radio" id="readYes" name="readYes" value="Yes">
-                <label for="readYes">Yes</label><br>
-                <input type="radio" id="readNo" name="readNo" value="No">
-                <label for="readNo">No</label><br>
-                <button type="submit" id="submit" form="newBookForm" value="Submit">Submit</button>
+                <input type='radio' id='readYes' name='readYes' value='Yes'>
+                <label for='readYes'>Yes</label><br>
+                <input type='radio' id='readNo' name='readNo' value='No'>
+                <label for='readNo'>No</label><br>
+                <button type='submit' id='submit' form='newBookForm' value='Submit'>Submit</button>
             </form>
             <h2>Current library</h2>
-            <table id="table">
+            <table id='table'>
                 <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Pages</th>
-                    <th>Read?</th>
+                    <thead>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th>Read?</th>
+                        <th>Delete</th>
+                    </thead>
                 </tr>
             </table>
         </div>
     </body>
-    <script src="js/script.js"></script>
+    <script src='js/script.js'></script>
 </html>

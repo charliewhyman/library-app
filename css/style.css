@@ -1,5 +1,5 @@
 html {
-  font-family: 'helvetica neue', helvetica, arial, sans-serif;
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
 }
 
 .container {
@@ -13,7 +13,7 @@ h2 {
   font-size: medium;
 }
 
-button {
+#showBookButton {
   padding-block: 0.2em 0.2em;
   margin: 0.5em 0.5em;
 }
@@ -56,4 +56,9 @@ th, td {
 th {
   border-bottom: 1px solid navy;
   background-color: lightskyblue;
+}
+
+showBookButton {
+  padding-block: 0.2em 0.2em;
+  margin: 0.5em 0.5em;
 }
