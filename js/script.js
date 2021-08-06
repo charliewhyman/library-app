@@ -19,10 +19,20 @@ function Book(title, author, pages, readStatus) {
     this.readStatus = readStatus
 };
 
+// add function to toggle the read status of the Book prototype instance
+function toggleReadStatus(selectedBook) {
+    if (selectedBook.readStatus === 'Yes') {
+        selectedBook.readStatus = 'No'
+    } else {
+        selectedBook.readStatus = 'Yes'
+    };
+};
+
+
 //add test Books
-const newBook = new Book('testTitle', 'testAuthor', '999', 'read');
-const newBook2 = new Book('testTitle2', 'testAuthor2', '8888', 'read2');
-const newBook3 = new Book('testTitle3', 'testAuthor3', '7777', 'read3');
+const newBook = new Book('testTitle', 'testAuthor', '999', 'Yes');
+const newBook2 = new Book('testTitle2', 'testAuthor2', '8888', 'No');
+const newBook3 = new Book('testTitle3', 'testAuthor3', '7777', 'Yes');
 
 //create a function to add a new book object to the myLibrary array
 function addBookToLibrary(bookItem) {
@@ -45,27 +55,43 @@ function displayBooks() {
             var cell = row.insertCell(-1);
             cell.textContent = item[key];
         };
+    //add a read button to the end of each row
+    var readToggle = document.createElement('INPUT');
+    readToggle.setAttribute('type', 'checkbox');
+    readToggle.setAttribute('class', 'readToggle');
+    readToggle.setAttribute('id', row.dataset.key);
 
-        //add a delete button to the end of each row
-        var deleteButton = document.createElement('button');
-        deleteButton.innerText = 'Delete book';
-        deleteButton.setAttribute('class', 'tableButton');
-        deleteButton.setAttribute('id', row.dataset.key)
+    row.appendChild(readToggle);
 
-        row.appendChild(deleteButton);
+    //add a delete button to the end of each row
+    var deleteButton = document.createElement('button');
+    deleteButton.innerText = 'Delete book';
+    deleteButton.setAttribute('class', 'deleteButton');
+    deleteButton.setAttribute('id', row.dataset.key);
+
+    row.appendChild(deleteButton);
     };
-
-    table = document.getElementById('table');
-    table.addEventListener('click', (event) => {
-        const isButton = event.target.nodeName === 'BUTTON';
-        if (!isButton) {
-            return;
-        }
-        console.dir(event.target.id);
-    })
 };
 
 displayBooks();
+
+//add event listeners to all table buttons
+table = document.getElementById('table');
+table.addEventListener('click', (event) => {
+    const isButton = event.target.nodeName === 'BUTTON';
+    let rowId = event.target.id;
+    if (event.target.className === 'readToggle') {
+        toggleReadStatus(myLibrary[rowId]);
+        displayBooks();
+
+    } else if (event.target.className === 'deleteButton') {
+        let rowId = event.target.id
+        deleteBook(rowId);
+        console.log(myLibrary);
+    } else {
+        console.log(event.target.className);
+    };
+});
 
 // function to add event listener to submit button, and add the new book to the library
 function submitForm() {
@@ -79,7 +105,6 @@ function submitForm() {
     
     let newFormBook = new Book(formTitleValue, formAuthorValue, formPagesValue, formReadStatusValue);
     addBookToLibrary(newFormBook);
-    console.log(myLibrary);
     displayBooks();
     });
 };
@@ -87,13 +112,10 @@ function submitForm() {
 submitForm();
 
 //Create a function that allows the user to delete a book from the library
-function deleteBook() { 
-    var deleteIndex = 1;
+function deleteBook(deleteIndex) { 
     var tBody = document.getElementById('table').getElementsByTagName('tbody')[0];
     var row = tBody.rows[deleteIndex];
     var dataKey = row.dataset.key;
     myLibrary.splice(dataKey, 1);
     displayBooks();
 };
-
-//deleteBook();
