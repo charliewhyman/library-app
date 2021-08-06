@@ -1,5 +1,5 @@
 html {
-  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;
 }
 
 .container {
@@ -18,7 +18,7 @@ h2 {
   margin: 0.5em 0.5em;
 }
 
-form {
+#newBookForm {
   display: none;
   padding-block: 0.5em;
   width: 100%;
@@ -37,8 +37,8 @@ input[type=text] {
   border: 1px solid #ccc;
 }
 
-submit {
-
+#submit {
+  margin: 0.5em;
 }
 
 table {
@@ -48,17 +48,16 @@ table {
   border: 1px solid navy;
 }
 
-th, td {
-  padding: 0.2em;
-  text-align: center;
-}
-
 th {
+  padding: 0.5em;
   border-bottom: 1px solid navy;
   background-color: lightskyblue;
 }
 
-showBookButton {
-  padding-block: 0.2em 0.2em;
-  margin: 0.5em 0.5em;
+tbody {
+  text-align: center;
+}
+
+tr {
+  text-align: center;
 }
