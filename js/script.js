@@ -1,3 +1,5 @@
+"use strict";
+
 let myLibrary = [];
 //define function to show form on button click
 const form  = document.getElementById('newBookForm');
@@ -48,7 +50,7 @@ function displayBooks() {
     var tBody = document.getElementById('table').getElementsByTagName('tbody')[0];
     tBody.textContent = '';
     for (let item of myLibrary) {
-        row = tBody.insertRow(-1);
+        var row = tBody.insertRow(-1);
         // set the id of the table row as the object index
         row.dataset.key = myLibrary.indexOf(item).toString();
         for (let key in item) {
@@ -76,7 +78,7 @@ function displayBooks() {
 displayBooks();
 
 //add event listeners to all table buttons
-table = document.getElementById('table');
+var table = document.getElementById('table');
 table.addEventListener('click', (event) => {
     const isButton = event.target.nodeName === 'BUTTON';
     let rowId = event.target.id;
