@@ -61,7 +61,7 @@ function displayBooks() {
     readToggle.setAttribute('class', 'readToggle');
     readToggle.setAttribute('id', row.dataset.key);
 
-    row.appendChild(readToggle);
+    cell.appendChild(readToggle);
 
     //add a delete button to the end of each row
     var deleteButton = document.createElement('button');
