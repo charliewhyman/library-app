@@ -13,13 +13,15 @@ function showForm(){
     };
 };
 
-//define Book constructor
-function Book(title, author, pages, readStatus) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.readStatus = readStatus
-};
+//define Book class
+class Book {
+    constructor(title, author, pages, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    }
+}
 
 // add function to toggle the read status of the Book prototype instance
 function toggleReadStatus(selectedBook) {
