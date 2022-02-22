@@ -100,6 +100,19 @@ table.addEventListener('click', (event) => {
   }
 });
 
+//add form validity checks
+
+const pages = document.getElementById('pages');
+
+pages.addEventListener('input', function (event) {
+  if (pages.validity.rangeOverflow) {
+    pages.setCustomValidity('Too many pages! (must be <10,000)');
+    pages.reportValidity();
+  } else {
+    pages.setCustomValidity('');
+  }
+});
+
 // function to add event listener to submit button, and add the new book to the library
 function submitForm() {
   form.addEventListener('submit', (event) => {
